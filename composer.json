@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "J4k\\OAuth2\\Client\\Provider\\": "src"
+            "Gruzoveek\\OAuth2\\Client\\Provider\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "J4k\\OAuth2\\Client\\Test\\Provider\\": "tests/"
+            "Gruzoveek\\OAuth2\\Client\\Test\\Provider\\": "tests/"
         }
     }
 }
