@@ -1,9 +1,9 @@
 <?php
 
-namespace Gruzoveek\OAuth2\Client\Test\Provider;
+namespace J4k\OAuth2\Client\Test\Provider;
 
 use GuzzleHttp\Psr7\Response;
-use Gruzoveek\OAuth2\Client\Provider\Vkontakte as Provider;
+use J4k\OAuth2\Client\Provider\Vkontakte as Provider;
 use JetBrains\PhpStorm\Pure;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use League\OAuth2\Client\Token\AccessToken;

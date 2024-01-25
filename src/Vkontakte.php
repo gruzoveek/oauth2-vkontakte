@@ -1,6 +1,6 @@
 <?php
 
-namespace Gruzoveek\OAuth2\Client\Provider;
+namespace J4k\OAuth2\Client\Provider;
 
 use InvalidArgumentException;
 use League\OAuth2\Client\Provider\AbstractProvider;
@@ -19,14 +19,14 @@ class Vkontakte extends AbstractProvider
     /** @see https://vk.com/dev/permissions */
     public array $scopes = [
         'email',
-        //'friends',
-        //'offline',
+        'friends',
+        'offline',
         //'photos',
         //'wall',
         //'ads',
         //'audio',
         //'docs',
-        'groups',
+        //'groups',
         //'market',
         //'messages',
         //'nohttps',
