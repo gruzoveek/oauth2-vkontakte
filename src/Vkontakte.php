@@ -227,7 +227,7 @@ class Vkontakte extends AbstractProvider
         $url     = "$this->baseUri/friends.get?$query";
 
         $response     = $this->getResponse($this->createRequest(static::METHOD_GET, $url, $token, []))->getBody()->getContents();
-        $friends      = json_decode($response, true);
+        $friends      = json_decode($response, true)['response'];
         $array2friend = static function ($friendData) {
             if (is_numeric($friendData)) {
                 $friendData = ['id' => $friendData];
@@ -254,6 +254,6 @@ class Vkontakte extends AbstractProvider
         $url     = "$this->baseUri/groups.getById?$query";
 
         $response = $this->getResponse($this->createRequest(static::METHOD_GET, $url, $token, []))->getBody()->getContents();
-        return json_decode($response, true);
+        return json_decode($response, true)['response'];
     }
 }
