@@ -13,7 +13,7 @@ class Vkontakte extends AbstractProvider
 {
     protected string $baseOAuthUri = 'https://oauth.vk.com';
     protected string $baseUri      = 'https://api.vk.com/method';
-    protected string $version      = '5.131';
+    protected string $version      = '5.199'; //TODO move to yaml in config
     protected ?string $language    = null;
 
     /** @see https://vk.com/dev/permissions */
