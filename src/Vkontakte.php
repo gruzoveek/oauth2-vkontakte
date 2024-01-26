@@ -13,7 +13,7 @@ class Vkontakte extends AbstractProvider
 {
     protected string $baseOAuthUri = 'https://oauth.vk.com';
     protected string $baseUri      = 'https://api.vk.com/method';
-    protected string $version      = '5.199'; //TODO move to yaml in config
+    protected string $version      = '5.199';
     protected ?string $language    = null;
 
     /** @see https://vk.com/dev/permissions */
@@ -211,6 +211,7 @@ class Vkontakte extends AbstractProvider
 
         return array_map($array2user, $users);
     }
+
     /** @see https://vk.com/dev/friends.get */
     public function friendsGet($userId, AccessToken $token = null, array $params = []): array
     {
@@ -236,5 +237,22 @@ class Vkontakte extends AbstractProvider
         };
 
         return array_map($array2friend, $friends);
+    }
+
+    /** @see https://dev.vk.com/ru/method/groups.getById */
+    public function groupsGet($userId, AccessToken $token = null, array $params = []): array
+    {
+        $default = [
+            'user_id'      => $userId,
+            'fields'       => $this->userFields,
+            'access_token' => $token?->getToken(),
+            'v'            => $this->version,
+            'lang'         => $this->language
+        ];
+        $params  = array_merge($default, $params);
+        $query   = $this->buildQueryString($params);
+        $url     = "$this->baseUri/groups.getById?$query";
+
+        return $this->getResponse($this->createRequest(static::METHOD_GET, $url, $token, []))['response'];
     }
 }
